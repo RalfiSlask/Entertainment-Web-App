@@ -1,0 +1,167 @@
+@media screen and (min-width: 772px) {
+    
+body {
+
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header */
+
+header {
+    width: 760px;
+    margin-top: 23px;
+    border-radius: 10px;
+    height: 72px;
+}
+
+.header--container {
+    width: 719px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.company--logo {
+  width: 32px;
+  height: 25.6px;
+}
+
+.nav--icon {
+  width: 20px;
+  height: 20px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+}
+
+/* Main */
+
+main {
+    width: 767px;
+}
+
+form {
+    height: 30px;
+}
+
+form img {
+    margin-right: 24px;
+}
+
+.home--input {
+  width: 100%;
+  height: 40px;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.home--input::placeholder {
+  font-size: 24px;
+  font-weight: 300;
+  opacity: 0.4978797435760498;
+}
+
+.result--header {
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: -0.5px;
+    margin: 36px 0px 24px 0px;
+}
+
+
+/* Trending Images */
+
+.trending--container {
+  gap: 40px;
+  height: 230px;
+  width: 2470px;
+}
+
+.trending--movie {
+  width: 470px;
+  height: 230px;
+  position: relative;
+}
+
+.info--container {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  z-index: 50;
+  width: 150px;
+}
+
+.info--panel {
+  font-size: 15px;
+  height: 19px;
+  left: 24px;
+  bottom: 40px;
+  min-width: 132px;
+  opacity: 0.75;
+  margin-bottom: 5px;
+}
+
+.dot--container {
+  height: 15px;
+  margin-bottom: 6px;
+}
+
+.dot {
+  height: 5px;
+  font-size: 16px;
+}
+
+.logo--movie {
+  width: 12px;
+  height: 12px;
+}
+
+.trending--movie h2 {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    bottom: 5px;
+    margin: 0px;
+}
+
+
+/* Entertainment Section */
+
+.entertainment--section {
+  gap: 29px;
+}
+
+.entertainment--container {
+  height: 192px;
+  width: 220px;
+}
+
+.entertainment--container h2 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.imageEnt {
+  border-radius: 8px;
+}
+
+.entertainment--panel {
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+}
+
+@media screen and (min-width: 1200px) {
+    
+}
