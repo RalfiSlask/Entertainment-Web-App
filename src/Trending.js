@@ -2,7 +2,7 @@ import TrendingMovie from "./TrendingMovie";
 import { v4 as uuid } from "uuid";
 import { useEffect, useState } from "react";
 
-const Trending = ( {trendingMovies, screenWidth} ) => {
+const Trending = ( {trendingMovies, screenWidth, updateBookmarkStatus} ) => {
     const [isImageLarge, setisImageLarge] = useState(false)
 
     useEffect(() => {
@@ -15,7 +15,13 @@ const Trending = ( {trendingMovies, screenWidth} ) => {
                 {trendingMovies.map(movie => {
                 const unique_id = uuid();
                 const small_id = unique_id.slice(0,8)
-                return <TrendingMovie key={small_id} movieInfo={movie} isImageLarge={isImageLarge}/>})}
+                return <TrendingMovie 
+                    key={small_id} 
+                    info={movie} 
+                    isImageLarge={isImageLarge}
+                    updateBookmarkStatus={updateBookmarkStatus}
+                    />
+                })};
             </div>
         </>
      );

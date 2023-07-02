@@ -78,13 +78,12 @@ form img {
     margin: 36px 0px 24px 0px;
 }
 
-
 /* Trending Images */
 
 .trending--container {
   gap: 40px;
   height: 230px;
-  width: 2470px;
+  width: 2510px;
 }
 
 .trending--movie {
@@ -134,7 +133,6 @@ form img {
     margin: 0px;
 }
 
-
 /* Entertainment Section */
 
 .entertainment--section {
@@ -160,8 +158,97 @@ form img {
   opacity: 0.75;
 }
 
+/* Bookmarked Section */
+
+.bookmarked--container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 29px;
+}
+
+.bookmarked--heading {
+  margin-top: 48px;
+  font-size: 32px;
+  letter-spacing: -0.5px;
+}
+
 }
 
 @media screen and (min-width: 1200px) {
-    
+
+#root {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+  
+/* Header */
+
+header {
+  width: 96px;
+  height: 960px;
+  margin-top: 23px;
+  border-radius: 10px;
+  margin-left: 32px;
+  margin-right: 32px;
+}
+
+.header--container {
+  width: 96px;
+  height: 890px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  width: 20px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+}
+
+/* Main */
+
+main {
+  width: 1280px;
+}
+
+/* Entertainment Section */
+
+.entertainment--section {
+  gap: 40px;
+}
+
+.entertainment--container {
+  height: 230px;
+  width: 280px;
+}
+
+.entertainment--container h2 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.imageEnt {
+  border-radius: 8px;
+}
+
+.entertainment--panel {
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+/* Bookmarked Section */
+
+.bookmarked--container {
+  gap: 40px;
+}
+
 }

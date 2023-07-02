@@ -1,7 +1,6 @@
 import logoSearch from "./assets/icon-search.svg";
 import { useState, useEffect } from "react";
 
-
 const Searchbar = ( {handleInput, selectedIcon} ) => {
     const [placeholder, setPlaceholder] = useState("");
 
@@ -16,7 +15,6 @@ const Searchbar = ( {handleInput, selectedIcon} ) => {
             setPlaceholder("Search for bookmarked shows")
         }
     }, [selectedIcon]);
-
     
     return ( 
         <form>

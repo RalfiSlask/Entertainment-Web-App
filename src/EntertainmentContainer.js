@@ -1,14 +1,21 @@
 import { ReactComponent as LogoBookmarkEmpty } from "./assets/icon-bookmark-empty.svg";
 import { ReactComponent as LogoBookmarkFull }from "./assets/icon-bookmark-full.svg";
 import { ReactComponent as LogoMovie } from "./assets/icon-nav-movies.svg";
+import { useState } from "react";
 
-const EntertainmentContainer = ( {movieInfo, imageSize} ) => {
+const EntertainmentContainer = ( {info, imageSize, updateBookmarkStatus} ) => {
+    const [isLogoBookmarked, setIsLogoBookmarked] = useState(info.isBookmarked);
 
-    const {category, isBookmarked, rating, thumbnail, title, year} = movieInfo;
+    const handleClickOnBookmark = () => {
+        const updatedInfo = { ...info, isBookmarked: !isLogoBookmarked};
+        setIsLogoBookmarked(!isLogoBookmarked) 
+        updateBookmarkStatus(updatedInfo)
+    };
+
+    let {category, isBookmarked, rating, thumbnail, title, year} = info;
     const imageSources = thumbnail.regular;
     let imageClass = imageSize;
     let imagePath; 
-
 
     if(imageSize === "small") {
         imagePath = imageSources.small;
@@ -36,7 +43,7 @@ const EntertainmentContainer = ( {movieInfo, imageSize} ) => {
             </div>
             <h2>{title}</h2>
         </div>
-        <div className="bookmark--logo">
+        <div className="bookmark--logo" onClick={() => {handleClickOnBookmark(info)}}>
             {isBookmarked ? <LogoBookmarkFull /> : <LogoBookmarkEmpty className="bookmark--empty"/>}
         </div>
     </div>

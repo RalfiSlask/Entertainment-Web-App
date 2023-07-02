@@ -12,7 +12,7 @@ const Heading = ( {selectedIcon, input} ) => {
         } else if(selectedIcon === "Series") {
             setHeading("TV series")
         } else if(selectedIcon === "Bookmark") {
-            setHeading("Bookmarked Movies")
+            setHeading("")
         }
     };
 
@@ -27,7 +27,6 @@ const Heading = ( {selectedIcon, input} ) => {
     return ( 
         <>
             <h1 className="result--header">{heading}</h1>
-            <div className="result--container"></div>
         </>
      );
 }

@@ -60,6 +60,10 @@ header {
   fill: red;
 }
 
+.active {
+  fill: white;
+}
+
 .avatar {
   width: 24px;
   height: 24px;
@@ -244,8 +248,17 @@ form img {
   opacity: 1;
 }
 
+.bookmark--full {
+  fill:
+}
+
 .bookmark--logo:hover .bookmark--empty {
   stroke: black;
+}
+
+.bookmark--logo:hover .bookmark--full {
+  stroke: black;
+  fill: black;
 }
 
 /* Entertainment Section */
@@ -295,4 +308,21 @@ form img {
   font-weight: 300;
   letter-spacing: -0.312px;
   margin-top: 26px;
+}
+
+/* Bookmarked Section */
+
+.bookmarked--container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.bookmarked--heading {
+  margin-top: 24px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: -0.312px;
 }

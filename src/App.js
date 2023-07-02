@@ -9,13 +9,25 @@ import { useState, useEffect } from "react";
 
 
 function App() {
+
+  useEffect(() => {
+  const storedData = JSON.parse(localStorage.getItem("Data"));
+  storedData ? setJsonData(storedData) : setJsonData(Data);
+  }, []); 
+
   const [hasSearched, setHasSearched] = useState(false);
   const [jsonData, setJsonData] = useState(Data);
   const [width, setWidth] = useState(window.innerWidth);
   const [input, setInput] = useState("");
-  const [selectedIcon, setSelectedIcon] = useState("Home");
-  
-    
+  const [selectedIcon, setSelectedIcon] = useState("Home");  
+
+  const updateBookmarkStatus = (updatedInfo) => {
+    const updatedData = jsonData.map((item) =>
+      item.title === updatedInfo.title ? updatedInfo : item
+    );
+    setJsonData(updatedData);
+  };
+
   const handleClickOnNavbar = (icon) => {
       setSelectedIcon(icon);
   };
@@ -23,6 +35,10 @@ function App() {
   const handleInput = (event) => {
     setInput(event.target.value)
   };
+
+  useEffect(() => {
+    localStorage.setItem("Data", JSON.stringify(jsonData));
+  }, [jsonData]);
 
   useEffect(() => {
     input !== "" ? setHasSearched(true) : setHasSearched(false);
@@ -40,17 +56,35 @@ function App() {
     }
   }, []);
 
-  const trendingMovies = Data.filter(object => object.thumbnail.trending);
+  const trendingMovies = jsonData.filter(object => object.thumbnail.trending);
   
   return (
     <>
-      <Header handleClick={handleClickOnNavbar} selectedIcon={selectedIcon}/>
+      <Header 
+        handleClick={handleClickOnNavbar} 
+        selectedIcon={selectedIcon}
+      />
       <main>
-        <Searchbar handleInput={handleInput} selectedIcon={selectedIcon}/>
-        <Heading selectedIcon={selectedIcon} input={input}/>
-        {selectedIcon === "Home" && !hasSearched ? <Trending trendingMovies={trendingMovies} screenWidth={width}/> : null}
-        {selectedIcon === "Home" && !hasSearched ? <RecommendedHeader/> : null}
-        <Entertainment data={Data} screenWidth={width} input={input} selectedIcon={selectedIcon}/>
+        <Searchbar 
+          handleInput={handleInput} 
+          selectedIcon={selectedIcon}
+        />
+        <Heading 
+          selectedIcon={selectedIcon} 
+          input={input}
+        />
+        {selectedIcon === "Home" && !hasSearched ? (
+          <>
+        <Trending trendingMovies={trendingMovies} screenWidth={width} updateBookmarkStatus={updateBookmarkStatus}/>
+        <RecommendedHeader/>
+          </>
+          ) : null}
+        <Entertainment 
+          data={jsonData} 
+          screenWidth={width} 
+          input={input} 
+          selectedIcon={selectedIcon} 
+          updateBookmarkStatus={updateBookmarkStatus}/>
       </main>
     </>
     
