@@ -6,7 +6,7 @@ import { useState } from "react";
 const EntertainmentContainer = ( {info, imageSize, updateBookmarkStatus} ) => {
     const [isLogoBookmarked, setIsLogoBookmarked] = useState(info.isBookmarked);
 
-    const handleClickOnBookmark = () => {
+    const handleClickOnBookmark = (info) => {
         const updatedInfo = { ...info, isBookmarked: !isLogoBookmarked};
         setIsLogoBookmarked(!isLogoBookmarked) 
         updateBookmarkStatus(updatedInfo)
@@ -44,7 +44,7 @@ const EntertainmentContainer = ( {info, imageSize, updateBookmarkStatus} ) => {
             <h2>{title}</h2>
         </div>
         <div className="bookmark--logo" onClick={() => {handleClickOnBookmark(info)}}>
-            {isBookmarked ? <LogoBookmarkFull /> : <LogoBookmarkEmpty className="bookmark--empty"/>}
+            {isBookmarked ? <LogoBookmarkFull className="bookmark--full"/> : <LogoBookmarkEmpty className="bookmark--empty"/>}
         </div>
     </div>
      );

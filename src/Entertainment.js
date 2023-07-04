@@ -2,7 +2,7 @@ import EntertainmentContainer from "./EntertainmentContainer";
 import { v4 as uuid } from "uuid";
 import { useState, useEffect } from "react";
 
-const Entertainment = ( {data, screenWidth, input, selectedIcon, updateBookmarkStatus} ) => {
+const Entertainment = ( {data, screenWidth, input, selectedIcon, updateBookmarkStatus, getResultsLength} ) => {
     const [imageSize, setImageSize] = useState("small");
     const [Data, setData] = useState(data);
     const [BookmarkedMovies, setBookmarkedMovies] = useState(data);
@@ -24,12 +24,13 @@ const Entertainment = ( {data, screenWidth, input, selectedIcon, updateBookmarkS
     useEffect(() => {
         if(input) {
             setData((prev) => prev.filter(movie => movie.title.toLowerCase().includes(input.toLowerCase())));
+            getResultsLength(Data.length);
         } else {
             changeEntertainmentDependingOnCategory();
         }
         
     }, [input, data, selectedIcon])
-    
+
     useEffect(() => {
         if(screenWidth < 772) {
             setImageSize("small")

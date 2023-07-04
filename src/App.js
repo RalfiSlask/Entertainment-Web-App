@@ -20,6 +20,8 @@ function App() {
   const [width, setWidth] = useState(window.innerWidth);
   const [input, setInput] = useState("");
   const [selectedIcon, setSelectedIcon] = useState("Home");  
+  const [resultsLength, setResultsLength] = useState("");
+
 
   const updateBookmarkStatus = (updatedInfo) => {
     const updatedData = jsonData.map((item) =>
@@ -30,6 +32,11 @@ function App() {
 
   const handleClickOnNavbar = (icon) => {
       setSelectedIcon(icon);
+  };
+
+  const getResultsLength = (data) => {
+    setResultsLength(data)
+    console.log(data)
   };
 
   const handleInput = (event) => {
@@ -75,7 +82,11 @@ function App() {
         />
         {selectedIcon === "Home" && !hasSearched ? (
           <>
-        <Trending trendingMovies={trendingMovies} screenWidth={width} updateBookmarkStatus={updateBookmarkStatus}/>
+        <Trending 
+          trendingMovies={trendingMovies} 
+          screenWidth={width} 
+          updateBookmarkStatus={updateBookmarkStatus}
+        />
         <RecommendedHeader/>
           </>
           ) : null}
@@ -84,7 +95,9 @@ function App() {
           screenWidth={width} 
           input={input} 
           selectedIcon={selectedIcon} 
-          updateBookmarkStatus={updateBookmarkStatus}/>
+          updateBookmarkStatus={updateBookmarkStatus}
+          getResultsLength={getResultsLength}
+        />
       </main>
     </>
     

@@ -249,7 +249,7 @@ form img {
 }
 
 .bookmark--full {
-  fill:
+  fill: white;
 }
 
 .bookmark--logo:hover .bookmark--empty {

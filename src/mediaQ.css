@@ -1,9 +1,5 @@
 @media screen and (min-width: 772px) {
     
-body {
-
-}
-
 #root {
     display: flex;
     flex-direction: column;
@@ -218,6 +214,11 @@ header {
 
 main {
   width: 1280px;
+}
+
+form {
+  margin-top: 56px;
+  height: 32px;
 }
 
 /* Entertainment Section */
