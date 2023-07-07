@@ -1,4 +1,4 @@
-![Expenses-charts](./preview.png)
+![Entertainment-Web-App](./preview.png)
 
 Built with
 
