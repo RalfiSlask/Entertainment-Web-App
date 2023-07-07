@@ -7,7 +7,6 @@ import Entertainment from "./Entertainment";
 import Heading from "./Heading";
 import { useState, useEffect } from "react";
 
-
 function App() {
 
   useEffect(() => {
@@ -22,6 +21,9 @@ function App() {
   const [selectedIcon, setSelectedIcon] = useState("Home");  
   const [resultsLength, setResultsLength] = useState("");
 
+  const getResultsLength = (data) => {
+    setResultsLength(data)
+  };
 
   const updateBookmarkStatus = (updatedInfo) => {
     const updatedData = jsonData.map((item) =>
@@ -32,11 +34,6 @@ function App() {
 
   const handleClickOnNavbar = (icon) => {
       setSelectedIcon(icon);
-  };
-
-  const getResultsLength = (data) => {
-    setResultsLength(data)
-    console.log(data)
   };
 
   const handleInput = (event) => {
@@ -79,6 +76,7 @@ function App() {
         <Heading 
           selectedIcon={selectedIcon} 
           input={input}
+          resultsLength={resultsLength}
         />
         {selectedIcon === "Home" && !hasSearched ? (
           <>

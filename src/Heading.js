@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 
-const Heading = ( {selectedIcon, input} ) => {
+const Heading = ( {selectedIcon, input, resultsLength} ) => {
     const [heading, setHeading] = useState("Trending")
 
     const changeHeadingDependingOnPressedIcon = () => {
@@ -18,11 +18,11 @@ const Heading = ( {selectedIcon, input} ) => {
 
     useEffect(() => {
         if(input) {
-            setHeading(`Found 2 results for ${input}`)
+            setHeading(`Found ${resultsLength} results for ${input}`)
         } else {
             changeHeadingDependingOnPressedIcon();
         }
-    }, [input, selectedIcon])
+    }, [input, selectedIcon, resultsLength])
     
     return ( 
         <>

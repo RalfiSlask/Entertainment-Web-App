@@ -2,7 +2,15 @@ import EntertainmentContainer from "./EntertainmentContainer";
 import { v4 as uuid } from "uuid";
 import { useState, useEffect } from "react";
 
-const Entertainment = ( {data, screenWidth, input, selectedIcon, updateBookmarkStatus, getResultsLength} ) => {
+const Entertainment = ( {
+    data, 
+    screenWidth, 
+    input, 
+    selectedIcon, 
+    updateBookmarkStatus, 
+    getResultsLength
+}) => {
+
     const [imageSize, setImageSize] = useState("small");
     const [Data, setData] = useState(data);
     const [BookmarkedMovies, setBookmarkedMovies] = useState(data);
@@ -22,14 +30,24 @@ const Entertainment = ( {data, screenWidth, input, selectedIcon, updateBookmarkS
     };
 
     useEffect(() => {
-        if(input) {
+        if(input && selectedIcon !== "Bookmark") {
             setData((prev) => prev.filter(movie => movie.title.toLowerCase().includes(input.toLowerCase())));
-            getResultsLength(Data.length);
+        } else if(input && selectedIcon === "Bookmark") {
+            setBookmarkedMovies((prev) => prev.filter(movie => movie.title.toLowerCase().includes(input.toLowerCase())));
+            setBookmarkedTvSeries((prev) => prev.filter(movie => movie.title.toLowerCase().includes(input.toLowerCase())));
         } else {
             changeEntertainmentDependingOnCategory();
         }
         
     }, [input, data, selectedIcon])
+
+    useEffect(() => {
+        if(input && selectedIcon !== "Bookmark") {
+            getResultsLength(Data.length)
+        } else {
+            getResultsLength(BookmarkedMovies.length + BookmarkedTvSeries.length);
+        }
+    }, [input, Data, getResultsLength, BookmarkedMovies, BookmarkedTvSeries, selectedIcon])
 
     useEffect(() => {
         if(screenWidth < 772) {
